@@ -14,7 +14,7 @@ In order to figure out how to fix this test, we have to understand why the test 
 
 ## Overview of the Failing Test
 
-The test in question can be found [here](https://github.com/mdtraj/mdtraj/blob/b4447a1a6e8e9899bafec4d7ffb8bdce5d41aa60/tests/test_lammpstrj.py#L58). It generates random arrays representing `xyz` coordinates, `lengths`, and `angles` of a trajectory. The `LAMMPSTrajectory` class writes these arrays to a file and then reads them back, and the original and written arrays are compared.
+The test in question can be found [here](https://github.com/mdtraj/mdtraj/blob/b4447a1a6e8e9899bafec4d7ffb8bdce5d41aa60/tests/test_lammpstrj.py#L58). It generates random arrays representing `xyz` coordinates, `lengths`, and `angles` of a trajectory. The [`LAMMPSTrajectory` class](https://github.com/mdtraj/mdtraj/blob/b4447a1a6e8e9899bafec4d7ffb8bdce5d41aa60/mdtraj/formats/lammpstrj.py#L123) writes these arrays to a file and then reads them back, and the original and written arrays are compared.
 
 The test code is as follows:
 
