@@ -44,6 +44,9 @@ I modified the test to save new and original arrays using pickle. The modified t
 
 ```python
 def test_read_write_0():
+
+    np.random.seed(1)
+
     xyz = 10 * np.random.randn(100, 11, 3)
     lengths = np.ones(shape=(100, 3))
     angles = np.empty(shape=(100, 3), dtype=np.float64)
@@ -83,13 +86,13 @@ The arrays were compared in the notebook `comparison.ipynb`
 I subracted the original arrays from the new arrays and calculated the maximum difference for each array. The results are as follows:
 
 ```
-np1 (NumPy 1.0) - Max difference for tuple 1: 0.0005000007133606488
-np1 (NumPy 1.0) - Max difference for tuple 2: 6.661338147750939e-16
-np1 (NumPy 1.0) - Max difference for tuple 3: 9.805755212255463e-07
-np2 (NumPy 2.0) - Max difference for tuple 1: 0.0005000007133606488
+np1 (NumPy 1.0) - Max difference for tuple 1 (xyz): 0.000499959303509101
+np1 (NumPy 1.0) - Max difference for tuple 2 (lengths): 6.661338147750939e-16
+np1 (NumPy 1.0) - Max difference for tuple 3 (angles): 9.805755212255463e-07
+np2 (NumPy 2.0) - Max difference for tuple 1: 0.000499959303509101
 np2 (NumPy 2.0) - Max difference for tuple 2: 5.307949098032338e-07
 np2 (NumPy 2.0) - Max difference for tuple 3: 3.1392858353740394e-05
-np2_np64 (NumPy 2.0 with np64) - Max difference for tuple 1: 0.000499999286638797
+np2_np64 (NumPy 2.0 with np64) - Max difference for tuple 1: 0.000499959303509101
 np2_np64 (NumPy 2.0 with np64) - Max difference for tuple 2: 9.992007221626409e-16
 np2_np64 (NumPy 2.0 with np64) - Max difference for tuple 3: 5.684341886080802e-14
 ```
